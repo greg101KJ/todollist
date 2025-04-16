@@ -137,4 +137,32 @@
     body.dark-theme button:hover {
         background: #2980b9;
     }
+    /* Light theme styles */
+    body.light-theme {
+        background: #f5f5f5;
+        color: #333;
+    }
     
+    body.light-theme table {
+        color: #333;
+    }
+    
+    body.light-theme th,
+    body.light-theme td {
+        border-bottom: 1px solid #ddd;
+    }
+    
+    body.light-theme input[type="text"] {
+        background: #fff;
+        color: #333;
+        border: 1px solid #ddd;
+    }
+    
+    body.light-theme button {
+        background: #3498db;
+        color: #fff;
+    }
+    
+    body.light-theme button:hover {
+        background: #2980b9;
+    }

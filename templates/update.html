@@ -5,15 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier la tâche</title>
     <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --content-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --button-bg: #2196F3;
+            --button-hover: #1976D2;
+            --button-text: white;
+            --cancel-bg: #757575;
+            --cancel-hover: #616161;
+        }
+
+        .dark-theme {
+            --bg-color: #1a1a1a;
+            --content-bg: #2d2d2d;
+            --text-color: #ffffff;
+            --border-color: #404040;
+            --button-bg: #3d5afe;
+            --button-hover: #536dfe;
+            --button-text: white;
+            --cancel-bg: #424242;
+            --cancel-hover: #323232;
+        }
+
         body {
             font-family: Arial, sans-serif;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         .content {
-            background-color: white;
+            background-color: var(--content-bg);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -24,36 +49,55 @@
         input[type="text"] {
             padding: 8px;
             width: 70%;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
             margin-bottom: 10px;
+            background-color: var(--content-bg);
+            color: var(--text-color);
         }
         button {
             padding: 8px 15px;
-            background-color: #2196F3;
-            color: white;
+            background-color: var(--button-bg);
+            color: var(--button-text);
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #1976D2;
+            background-color: var(--button-hover);
         }
         .back-button {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #757575;
-            color: white;
+            background-color: var(--cancel-bg);
+            color: var(--button-text);
             text-decoration: none;
             border-radius: 4px;
         }
         .back-button:hover {
-            background-color: #616161;
+            background-color: var(--cancel-hover);
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
         }
     </style>
 </head>
-<body>
+<body class="{{ theme }}">
+    <!-- Bouton de changement de thème -->
+    <form action="/toggle-theme" method="POST" class="theme-toggle">
+        <button type="submit">
+            {% if theme == 'dark-theme' %}
+            ☀️ Mode clair
+            {% else %}
+            🌙 Mode sombre
+            {% endif %}
+        </button>
+    </form>
+
     <div class="content">
         <h1>📝 Modifier la tâche</h1>
         
