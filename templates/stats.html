@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques des Tâches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .stats-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-item {
+            margin: 15px 0;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2196F3;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="stats-container">
+        <h1>📊 Statistiques des Tâches</h1>
+        
+        <div class="stat-item">
+            <h3>Total des tâches</h3>
+            <div class="stat-value">{{ stats.total }}</div>
+        </div>
+        
+        <div class="stat-item">
+            <h3>📝 Tâches à faire</h3>
+            <div class="stat-value">{{ stats.todo }}</div>
+        </div>
+        
+        <div class="stat-item">
+            <h3>🔄 Tâches en cours</h3>
+            <div class="stat-value">{{ stats.in_progress }}</div>
+        </div>
+        
+        <div class="stat-item">
+            <h3>✅ Tâches terminées</h3>
+            <div class="stat-value">{{ stats.done }}</div>
+        </div>
+    </div>
+    
+    <a href="/" class="back-button">Retour à la liste des tâches</a>
+</body>
+</html> 
