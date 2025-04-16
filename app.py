@@ -7,7 +7,11 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['STATIC_FOLDER'] = 'static'
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False  # Désactiver le mode debug en production
+
+# Assurez-vous que le dossier instance existe
+if not os.path.exists('instance'):
+    os.makedirs('instance')
 
 print("Démarrage de l'application...")
 
@@ -153,5 +157,5 @@ if __name__ == "__main__":
         db.create_all()
         print("Base de données créée avec succès")
     
-    print("Démarrage du serveur sur le port 8080...")
-    app.run(debug=True, use_reloader=True, host='0.0.0.0', port=8080)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
